@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "status-pill",
+  "title": "Status pill",
+  "description": "Rounded-full status chip (AA-safe, sentence case).",
+  "registryDependencies": [
+    "https://pucar.example/ui/r/pucar-theme.json"
+  ],
+  "files": [
+    {
+      "path": "components/status-pill.tsx",
+      "content": "import * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\n\ntype Tone = \"ready\" | \"waiting\" | \"urgent\" | \"info\" | \"neutral\"\n\nconst styles: Record<Tone, string> = {\n  ready: \"bg-success-muted text-success-muted-foreground\",\n  waiting: \"bg-warning-muted text-warning-muted-foreground\",\n  urgent: \"bg-destructive/10 text-destructive\",\n  info: \"bg-info-muted text-info-muted-foreground\",\n  neutral: \"bg-secondary text-secondary-foreground\",\n}\n\n/**\n * Rounded-full status chip. AA-safe (muted-foreground = step-12). Sentence case.\n * Pair tone with the label so meaning never rides on colour alone.\n */\nexport function StatusPill({\n  tone = \"neutral\",\n  className,\n  children,\n}: {\n  tone?: Tone\n  className?: string\n  children: React.ReactNode\n}) {\n  return (\n    <span\n      className={cn(\n        \"inline-flex items-center rounded-full px-2.5 py-1 text-caption font-medium\",\n        styles[tone],\n        className\n      )}\n    >\n      {children}\n    </span>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

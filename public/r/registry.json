@@ -1,0 +1,1295 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "pucar",
+  "homepage": "https://pucar.example/ui",
+  "items": [
+    {
+      "name": "design-rules",
+      "type": "registry:item",
+      "title": "Design rules (law + craft)",
+      "description": "The two files that govern designing with Pucar: design-guidelines.md (the law — teal rationing, sentence case, AA, colour semantics) and screen-craft.md (the craft — spacing ladder, scaffolds, hierarchy, UX patterns, states, review pass). Installed into the consumer repo root so humans and AI sessions there inherit the rules. Release 2026-07-06.",
+      "files": [
+        {
+          "path": "design-guidelines.md",
+          "type": "registry:file",
+          "target": "design-guidelines.md"
+        },
+        {
+          "path": "screen-craft.md",
+          "type": "registry:file",
+          "target": "screen-craft.md"
+        }
+      ]
+    },
+    {
+      "name": "pucar-theme",
+      "type": "registry:style",
+      "title": "Pucar theme",
+      "description": "Pucar · ON Court design tokens — colour, type, spacing, radius, elevation (light + dark, WCAG 2.2 AA). Ships the full @theme utility mappings (status colours, surfaces, type scale, shadows), so custom utilities work in consumer apps. Pulls in design-rules (guidelines + screen-craft) so the rules travel with the tokens. Release 2026-07-06.",
+      "cssVars": {
+        "theme": {
+          "color-background": "var(--background)",
+          "color-foreground": "var(--foreground)",
+          "color-card": "var(--card)",
+          "color-card-foreground": "var(--card-foreground)",
+          "color-popover": "var(--popover)",
+          "color-popover-foreground": "var(--popover-foreground)",
+          "color-surface": "var(--surface)",
+          "color-surface-raised": "var(--surface-raised)",
+          "color-track": "var(--track)",
+          "color-primary": "var(--primary)",
+          "color-secondary": "var(--secondary)",
+          "color-secondary-foreground": "var(--secondary-foreground)",
+          "color-muted": "var(--muted)",
+          "color-muted-foreground": "var(--muted-foreground)",
+          "color-accent": "var(--accent)",
+          "color-accent-foreground": "var(--accent-foreground)",
+          "color-destructive": "var(--destructive)",
+          "color-success": "var(--success)",
+          "color-info": "var(--info)",
+          "color-warning": "var(--warning)",
+          "color-warning-foreground": "var(--warning-foreground)",
+          "color-success-muted": "var(--success-muted)",
+          "color-success-muted-foreground": "var(--success-muted-foreground)",
+          "color-warning-muted": "var(--warning-muted)",
+          "color-warning-muted-foreground": "var(--warning-muted-foreground)",
+          "color-info-muted": "var(--info-muted)",
+          "color-info-muted-foreground": "var(--info-muted-foreground)",
+          "color-border": "var(--border)",
+          "color-input": "var(--input)",
+          "color-ring": "var(--ring)",
+          "color-sidebar": "var(--sidebar)",
+          "color-sidebar-foreground": "var(--sidebar-foreground)",
+          "color-sidebar-primary": "var(--sidebar-primary)",
+          "color-sidebar-accent": "var(--sidebar-accent)",
+          "color-sidebar-accent-foreground": "var(--sidebar-accent-foreground)",
+          "color-sidebar-border": "var(--sidebar-border)",
+          "color-sidebar-ring": "var(--sidebar-ring)",
+          "color-primary-foreground": "var(--primary-foreground)",
+          "color-destructive-foreground": "var(--destructive-foreground)",
+          "color-success-foreground": "var(--success-foreground)",
+          "color-info-foreground": "var(--info-foreground)",
+          "color-sidebar-primary-foreground": "var(--sidebar-primary-foreground)",
+          "color-brand-accent": "var(--brand-accent)",
+          "color-surface-sunken": "var(--surface-sunken)",
+          "color-chart-1": "var(--chart-1)",
+          "color-chart-2": "var(--chart-2)",
+          "color-chart-3": "var(--chart-3)",
+          "color-chart-4": "var(--chart-4)",
+          "color-chart-5": "var(--chart-5)",
+          "font-heading": "var(--font-heading)",
+          "radius-sm": "calc(var(--radius) * 0.6)",
+          "radius-md": "calc(var(--radius) * 0.8)",
+          "radius-lg": "var(--radius)",
+          "radius-xl": "calc(var(--radius) * 1.4)",
+          "radius-2xl": "calc(var(--radius) * 1.8)",
+          "radius-3xl": "calc(var(--radius) * 2.2)",
+          "radius-4xl": "calc(var(--radius) * 2.6)",
+          "text-display": "3rem",
+          "text-display--line-height": "3.5rem",
+          "text-display--font-weight": "600",
+          "text-display-s": "2.5rem",
+          "text-display-s--line-height": "3rem",
+          "text-display-s--font-weight": "600",
+          "text-title-l": "2rem",
+          "text-title-l--line-height": "2.5rem",
+          "text-title-l--font-weight": "600",
+          "text-title": "1.5rem",
+          "text-title--line-height": "2rem",
+          "text-title--font-weight": "600",
+          "text-title-s": "1.25rem",
+          "text-title-s--line-height": "1.75rem",
+          "text-title-s--font-weight": "600",
+          "text-body": "1rem",
+          "text-body--line-height": "1.5rem",
+          "text-body-compact": "0.875rem",
+          "text-body-compact--line-height": "1.25rem",
+          "text-caption": "0.75rem",
+          "text-caption--line-height": "1rem",
+          "text-caption--font-weight": "500",
+          "shadow-raised": "0 1px 2px 0 rgb(0 0 0 / 0.04), 0 1px 3px 0 rgb(0 0 0 / 0.07)",
+          "shadow-overlay": "0 4px 8px -2px rgb(0 0 0 / 0.10), 0 2px 4px -2px rgb(0 0 0 / 0.06)",
+          "shadow-modal": "0 16px 32px -8px rgb(0 0 0 / 0.18), 0 6px 12px -6px rgb(0 0 0 / 0.12)"
+        },
+        "light": {
+          "neutral-1": "#fcfcfd",
+          "neutral-2": "#f9f9fb",
+          "neutral-3": "#f0f0f3",
+          "neutral-4": "#e8e8ec",
+          "neutral-5": "#e0e1e6",
+          "neutral-6": "#d9d9e0",
+          "neutral-7": "#cdced6",
+          "neutral-8": "#b9bbc6",
+          "neutral-9": "#8b8d98",
+          "neutral-10": "#80838d",
+          "neutral-11": "#60646c",
+          "neutral-12": "#1c2024",
+          "brand-1": "#fafefd",
+          "brand-2": "#f3fbf9",
+          "brand-3": "#e0f8f3",
+          "brand-4": "#ccf3ea",
+          "brand-5": "#b8eae0",
+          "brand-6": "#a1ded2",
+          "brand-7": "#83cdc1",
+          "brand-8": "#53b9ab",
+          "brand-9": "#12a594",
+          "brand-10": "#0d9b8a",
+          "brand-11": "#008573",
+          "brand-12": "#0d3d38",
+          "success-1": "#fbfefb",
+          "success-2": "#f5fbf5",
+          "success-3": "#e9f6e9",
+          "success-4": "#daf1db",
+          "success-5": "#c9e8ca",
+          "success-6": "#b2ddb5",
+          "success-7": "#94ce9a",
+          "success-8": "#65ba74",
+          "success-9": "#46a758",
+          "success-10": "#3e9b4f",
+          "success-11": "#2a7e3b",
+          "success-12": "#203c25",
+          "info-1": "#fbfdff",
+          "info-2": "#f4faff",
+          "info-3": "#e6f4fe",
+          "info-4": "#d5efff",
+          "info-5": "#c2e5ff",
+          "info-6": "#acd8fc",
+          "info-7": "#8ec8f6",
+          "info-8": "#5eb1ef",
+          "info-9": "#0090ff",
+          "info-10": "#0588f0",
+          "info-11": "#0d74ce",
+          "info-12": "#113264",
+          "warning-1": "#fefdfb",
+          "warning-2": "#fefbe9",
+          "warning-3": "#fff7c2",
+          "warning-4": "#ffee9c",
+          "warning-5": "#fbe577",
+          "warning-6": "#f3d673",
+          "warning-7": "#e9c162",
+          "warning-8": "#e2a336",
+          "warning-9": "#ffc53d",
+          "warning-10": "#ffba18",
+          "warning-11": "#ab6400",
+          "warning-12": "#4f3422",
+          "destructive-1": "#fffcfc",
+          "destructive-2": "#fff7f7",
+          "destructive-3": "#feebec",
+          "destructive-4": "#ffdbdc",
+          "destructive-5": "#ffcdce",
+          "destructive-6": "#fdbdbe",
+          "destructive-7": "#f4a9aa",
+          "destructive-8": "#eb8e90",
+          "destructive-9": "#e5484d",
+          "destructive-10": "#dc3e42",
+          "destructive-11": "#ce2c31",
+          "destructive-12": "#641723",
+          "brand-solid": "#007E7E",
+          "success-solid": "#217a3a",
+          "info-solid": "#0d74ce",
+          "destructive-solid": "#c1232a",
+          "brand-accent": "#12a594",
+          "surface-sunken": "#f4f4f7",
+          "chart-1": "#007E7E",
+          "chart-2": "#0d74ce",
+          "chart-3": "#6e56cf",
+          "chart-4": "#e2a336",
+          "chart-5": "#e93d82",
+          "background": "var(--neutral-1)",
+          "foreground": "var(--neutral-12)",
+          "card": "var(--neutral-1)",
+          "card-foreground": "var(--neutral-12)",
+          "popover": "var(--neutral-1)",
+          "popover-foreground": "var(--neutral-12)",
+          "surface": "var(--neutral-1)",
+          "surface-raised": "var(--neutral-1)",
+          "track": "var(--neutral-4)",
+          "primary": "var(--brand-solid)",
+          "secondary": "var(--neutral-3)",
+          "secondary-foreground": "var(--neutral-11)",
+          "muted": "var(--neutral-2)",
+          "muted-foreground": "var(--neutral-11)",
+          "accent": "var(--neutral-3)",
+          "accent-foreground": "var(--neutral-12)",
+          "destructive": "var(--destructive-solid)",
+          "success": "var(--success-solid)",
+          "info": "var(--info-solid)",
+          "warning": "var(--warning-9)",
+          "warning-foreground": "#3d2000",
+          "success-muted": "var(--success-3)",
+          "success-muted-foreground": "var(--success-11)",
+          "warning-muted": "var(--warning-3)",
+          "warning-muted-foreground": "var(--warning-12)",
+          "info-muted": "var(--info-3)",
+          "info-muted-foreground": "var(--info-12)",
+          "border": "var(--neutral-7)",
+          "input": "var(--neutral-9)",
+          "ring": "var(--brand-solid)",
+          "sidebar": "var(--neutral-2)",
+          "sidebar-foreground": "var(--neutral-12)",
+          "sidebar-primary": "var(--brand-solid)",
+          "sidebar-accent": "var(--neutral-3)",
+          "sidebar-accent-foreground": "var(--neutral-12)",
+          "sidebar-border": "var(--neutral-5)",
+          "sidebar-ring": "var(--brand-solid)",
+          "primary-foreground": "#ffffff",
+          "destructive-foreground": "#ffffff",
+          "success-foreground": "#ffffff",
+          "info-foreground": "#ffffff",
+          "sidebar-primary-foreground": "#ffffff",
+          "font-sans": "\"Helvetica Neue\", Helvetica, Arial, system-ui, sans-serif",
+          "font-mono": "ui-monospace, \"SF Mono\", Menlo, Consolas, monospace",
+          "font-heading": "\"Helvetica Neue\", Helvetica, Arial, system-ui, sans-serif",
+          "radius": "0.625rem"
+        },
+        "dark": {
+          "neutral-1": "#111113",
+          "neutral-2": "#18191b",
+          "neutral-3": "#212225",
+          "neutral-4": "#272a2d",
+          "neutral-5": "#2e3135",
+          "neutral-6": "#363a3f",
+          "neutral-7": "#43484e",
+          "neutral-8": "#5a6169",
+          "neutral-9": "#696e77",
+          "neutral-10": "#777b84",
+          "neutral-11": "#b0b4ba",
+          "neutral-12": "#edeef0",
+          "brand-1": "#0d1514",
+          "brand-2": "#111c1b",
+          "brand-3": "#0d2d2a",
+          "brand-4": "#023b37",
+          "brand-5": "#084843",
+          "brand-6": "#145750",
+          "brand-7": "#1c6961",
+          "brand-8": "#207e73",
+          "brand-9": "#12a594",
+          "brand-10": "#0eb39e",
+          "brand-11": "#0bd8b6",
+          "brand-12": "#adf0dd",
+          "success-1": "#0e1511",
+          "success-2": "#141a15",
+          "success-3": "#1b2a1e",
+          "success-4": "#1d3a24",
+          "success-5": "#25482d",
+          "success-6": "#2d5736",
+          "success-7": "#366740",
+          "success-8": "#3e7949",
+          "success-9": "#46a758",
+          "success-10": "#53b365",
+          "success-11": "#71d083",
+          "success-12": "#c2f0c2",
+          "info-1": "#0d1520",
+          "info-2": "#111927",
+          "info-3": "#0d2847",
+          "info-4": "#003362",
+          "info-5": "#004074",
+          "info-6": "#104d87",
+          "info-7": "#205d9e",
+          "info-8": "#2870bd",
+          "info-9": "#0090ff",
+          "info-10": "#3b9eff",
+          "info-11": "#70b8ff",
+          "info-12": "#c2e6ff",
+          "warning-1": "#16120c",
+          "warning-2": "#1d180f",
+          "warning-3": "#302008",
+          "warning-4": "#3f2700",
+          "warning-5": "#4d3000",
+          "warning-6": "#5c3d05",
+          "warning-7": "#714f19",
+          "warning-8": "#8f6424",
+          "warning-9": "#ffc53d",
+          "warning-10": "#ffd60a",
+          "warning-11": "#ffca16",
+          "warning-12": "#ffe7b3",
+          "destructive-1": "#191111",
+          "destructive-2": "#201314",
+          "destructive-3": "#3b1219",
+          "destructive-4": "#500f1c",
+          "destructive-5": "#611623",
+          "destructive-6": "#72232d",
+          "destructive-7": "#8c333a",
+          "destructive-8": "#b54548",
+          "destructive-9": "#e5484d",
+          "destructive-10": "#ec5d5e",
+          "destructive-11": "#ff9592",
+          "destructive-12": "#ffd1d9",
+          "brand-solid": "#0eb39e",
+          "success-solid": "#46a758",
+          "info-solid": "#3b9eff",
+          "destructive-solid": "#ec5d5e",
+          "brand-accent": "#12a594",
+          "surface-sunken": "#1d1e21",
+          "chart-1": "#0eb39e",
+          "chart-2": "#3b9eff",
+          "chart-3": "#9e8cff",
+          "chart-4": "#ffce6a",
+          "chart-5": "#ff8dab",
+          "primary-foreground": "#0a0a0a",
+          "destructive-foreground": "#0a0a0a",
+          "success-foreground": "#0a0a0a",
+          "info-foreground": "#0a0a0a",
+          "sidebar-primary-foreground": "#0a0a0a"
+        }
+      },
+      "registryDependencies": [
+        "https://pucar.example/ui/r/design-rules.json"
+      ]
+    },
+    {
+      "name": "accordion",
+      "type": "registry:ui",
+      "title": "Accordion",
+      "description": "Pucar-themed accordion (release 2026-07-06).",
+      "files": [
+        {
+          "path": "components/ui/accordion.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://pucar.example/ui/r/pucar-theme.json"
+      ]
+    },
+    {
+      "name": "alert-dialog",
+      "type": "registry:ui",
+      "title": "Alert dialog",
+      "description": "Pucar-themed alert dialog (release 2026-07-06).",
+      "files": [
+        {
+          "path": "components/ui/alert-dialog.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://pucar.example/ui/r/pucar-theme.json",
+        "https://pucar.example/ui/r/button.json"
+      ]
+    },
+    {
+      "name": "alert",
+      "type": "registry:ui",
+      "title": "Alert",
+      "description": "Pucar-themed alert (release 2026-07-06).",
+      "files": [
+        {
+          "path": "components/ui/alert.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://pucar.example/ui/r/pucar-theme.json"
+      ]
+    },
+    {
+      "name": "avatar",
+      "type": "registry:ui",
+      "title": "Avatar",
+      "description": "Pucar-themed avatar (release 2026-07-06).",
+      "files": [
+        {
+          "path": "components/ui/avatar.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://pucar.example/ui/r/pucar-theme.json"
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "Pucar-themed badge (release 2026-07-06).",
+      "files": [
+        {
+          "path": "components/ui/badge.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://pucar.example/ui/r/pucar-theme.json"
+      ]
+    },
+    {
+      "name": "breadcrumb",
+      "type": "registry:ui",
+      "title": "Breadcrumb",
+      "description": "Pucar-themed breadcrumb (release 2026-07-06).",
+      "files": [
+        {
+          "path": "components/ui/breadcrumb.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://pucar.example/ui/r/pucar-theme.json"
+      ]
+    },
+    {
+      "name": "button-group",
+      "type": "registry:ui",
+      "title": "Button group",
+      "description": "Pucar-themed button group (release 2026-07-06).",
+      "files": [
+        {
+          "path": "components/ui/button-group.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://pucar.example/ui/r/pucar-theme.json",
+        "https://pucar.example/ui/r/separator.json"
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "Pucar-themed button (release 2026-07-06).",
+      "files": [
+        {
+          "path": "components/ui/button.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://pucar.example/ui/r/pucar-theme.json"
+      ]
+    },
+    {
+      "name": "calendar",
+      "type": "registry:ui",
+      "title": "Calendar",
+      "description": "Pucar-themed calendar (release 2026-07-06).",
+      "files": [
+        {
+          "path": "components/ui/calendar.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react",
+        "react-day-picker"
+      ],
+      "registryDependencies": [
+        "https://pucar.example/ui/r/pucar-theme.json",
+        "https://pucar.example/ui/r/button.json"
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "title": "Card",
+      "description": "Pucar-themed card (release 2026-07-06).",
+      "files": [
+        {
+          "path": "components/ui/card.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "https://pucar.example/ui/r/pucar-theme.json"
+      ]
+    },
+    {
+      "name": "chart",
+      "type": "registry:ui",
+      "title": "Chart",
+      "description": "Pucar-themed chart (release 2026-07-06).",
+      "files": [
+        {
+          "path": "components/ui/chart.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "https://pucar.example/ui/r/pucar-theme.json"
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "Pucar-themed checkbox (release 2026-07-06).",
+      "files": [
+        {
+          "path": "components/ui/checkbox.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://pucar.example/ui/r/pucar-theme.json"
+      ]
+    },
+    {
+      "name": "collapsible",
+      "type": "registry:ui",
+      "title": "Collapsible",
+      "description": "Pucar-themed collapsible (release 2026-07-06).",
+      "files": [
+        {
+          "path": "components/ui/collapsible.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://pucar.example/ui/r/pucar-theme.json"
+      ]
+    },
+    {
+      "name": "command",
+      "type": "registry:ui",
+      "title": "Command",
+      "description": "Pucar-themed command (release 2026-07-06).",
+      "files": [
+        {
+          "path": "components/ui/command.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "cmdk",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://pucar.example/ui/r/pucar-theme.json",
+        "https://pucar.example/ui/r/dialog.json",
+        "https://pucar.example/ui/r/input-group.json"
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog",
+      "description": "Pucar-themed dialog (release 2026-07-06).",
+      "files": [
+        {
+          "path": "components/ui/dialog.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://pucar.example/ui/r/pucar-theme.json",
+        "https://pucar.example/ui/r/button.json"
+      ]
+    },
+    {
+      "name": "drawer",
+      "type": "registry:ui",
+      "title": "Drawer",
+      "description": "Pucar-themed drawer (release 2026-07-06).",
+      "files": [
+        {
+          "path": "components/ui/drawer.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "vaul"
+      ],
+      "registryDependencies": [
+        "https://pucar.example/ui/r/pucar-theme.json"
+      ]
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:ui",
+      "title": "Dropdown menu",
+      "description": "Pucar-themed dropdown menu (release 2026-07-06).",
+      "files": [
+        {
+          "path": "components/ui/dropdown-menu.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://pucar.example/ui/r/pucar-theme.json"
+      ]
+    },
+    {
+      "name": "empty",
+      "type": "registry:ui",
+      "title": "Empty",
+      "description": "Pucar-themed empty (release 2026-07-06).",
+      "files": [
+        {
+          "path": "components/ui/empty.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://pucar.example/ui/r/pucar-theme.json"
+      ]
+    },
+    {
+      "name": "field",
+      "type": "registry:ui",
+      "title": "Field",
+      "description": "Pucar-themed field (release 2026-07-06).",
+      "files": [
+        {
+          "path": "components/ui/field.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://pucar.example/ui/r/pucar-theme.json",
+        "https://pucar.example/ui/r/label.json",
+        "https://pucar.example/ui/r/separator.json"
+      ]
+    },
+    {
+      "name": "hover-card",
+      "type": "registry:ui",
+      "title": "Hover card",
+      "description": "Pucar-themed hover card (release 2026-07-06).",
+      "files": [
+        {
+          "path": "components/ui/hover-card.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://pucar.example/ui/r/pucar-theme.json"
+      ]
+    },
+    {
+      "name": "input-group",
+      "type": "registry:ui",
+      "title": "Input group",
+      "description": "Pucar-themed input group (release 2026-07-06).",
+      "files": [
+        {
+          "path": "components/ui/input-group.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://pucar.example/ui/r/pucar-theme.json",
+        "https://pucar.example/ui/r/button.json",
+        "https://pucar.example/ui/r/input.json",
+        "https://pucar.example/ui/r/textarea.json"
+      ]
+    },
+    {
+      "name": "input-otp",
+      "type": "registry:ui",
+      "title": "Input otp",
+      "description": "Pucar-themed input otp (release 2026-07-06).",
+      "files": [
+        {
+          "path": "components/ui/input-otp.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "input-otp",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://pucar.example/ui/r/pucar-theme.json"
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "Pucar-themed input (release 2026-07-06).",
+      "files": [
+        {
+          "path": "components/ui/input.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "https://pucar.example/ui/r/pucar-theme.json"
+      ]
+    },
+    {
+      "name": "label",
+      "type": "registry:ui",
+      "title": "Label",
+      "description": "Pucar-themed label (release 2026-07-06).",
+      "files": [
+        {
+          "path": "components/ui/label.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://pucar.example/ui/r/pucar-theme.json"
+      ]
+    },
+    {
+      "name": "menubar",
+      "type": "registry:ui",
+      "title": "Menubar",
+      "description": "Pucar-themed menubar (release 2026-07-06).",
+      "files": [
+        {
+          "path": "components/ui/menubar.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://pucar.example/ui/r/pucar-theme.json"
+      ]
+    },
+    {
+      "name": "navigation-menu",
+      "type": "registry:ui",
+      "title": "Navigation menu",
+      "description": "Pucar-themed navigation menu (release 2026-07-06).",
+      "files": [
+        {
+          "path": "components/ui/navigation-menu.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://pucar.example/ui/r/pucar-theme.json"
+      ]
+    },
+    {
+      "name": "pagination",
+      "type": "registry:ui",
+      "title": "Pagination",
+      "description": "Pucar-themed pagination (release 2026-07-06).",
+      "files": [
+        {
+          "path": "components/ui/pagination.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://pucar.example/ui/r/pucar-theme.json",
+        "https://pucar.example/ui/r/button.json"
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "title": "Popover",
+      "description": "Pucar-themed popover (release 2026-07-06).",
+      "files": [
+        {
+          "path": "components/ui/popover.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://pucar.example/ui/r/pucar-theme.json"
+      ]
+    },
+    {
+      "name": "progress",
+      "type": "registry:ui",
+      "title": "Progress",
+      "description": "Pucar-themed progress (release 2026-07-06).",
+      "files": [
+        {
+          "path": "components/ui/progress.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://pucar.example/ui/r/pucar-theme.json"
+      ]
+    },
+    {
+      "name": "radio-group",
+      "type": "registry:ui",
+      "title": "Radio group",
+      "description": "Pucar-themed radio group (release 2026-07-06).",
+      "files": [
+        {
+          "path": "components/ui/radio-group.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://pucar.example/ui/r/pucar-theme.json"
+      ]
+    },
+    {
+      "name": "scroll-area",
+      "type": "registry:ui",
+      "title": "Scroll area",
+      "description": "Pucar-themed scroll area (release 2026-07-06).",
+      "files": [
+        {
+          "path": "components/ui/scroll-area.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://pucar.example/ui/r/pucar-theme.json"
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "description": "Pucar-themed select (release 2026-07-06).",
+      "files": [
+        {
+          "path": "components/ui/select.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://pucar.example/ui/r/pucar-theme.json"
+      ]
+    },
+    {
+      "name": "separator",
+      "type": "registry:ui",
+      "title": "Separator",
+      "description": "Pucar-themed separator (release 2026-07-06).",
+      "files": [
+        {
+          "path": "components/ui/separator.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://pucar.example/ui/r/pucar-theme.json"
+      ]
+    },
+    {
+      "name": "sheet",
+      "type": "registry:ui",
+      "title": "Sheet",
+      "description": "Pucar-themed sheet (release 2026-07-06).",
+      "files": [
+        {
+          "path": "components/ui/sheet.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://pucar.example/ui/r/pucar-theme.json",
+        "https://pucar.example/ui/r/button.json"
+      ]
+    },
+    {
+      "name": "sidebar",
+      "type": "registry:ui",
+      "title": "Sidebar",
+      "description": "Pucar-themed sidebar (release 2026-07-06).",
+      "files": [
+        {
+          "path": "components/ui/sidebar.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://pucar.example/ui/r/pucar-theme.json",
+        "https://pucar.example/ui/r/button.json",
+        "https://pucar.example/ui/r/input.json",
+        "https://pucar.example/ui/r/separator.json",
+        "https://pucar.example/ui/r/sheet.json",
+        "https://pucar.example/ui/r/skeleton.json",
+        "https://pucar.example/ui/r/tooltip.json",
+        "https://pucar.example/ui/r/use-mobile.json"
+      ]
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:ui",
+      "title": "Skeleton",
+      "description": "Pucar-themed skeleton (release 2026-07-06).",
+      "files": [
+        {
+          "path": "components/ui/skeleton.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "https://pucar.example/ui/r/pucar-theme.json"
+      ]
+    },
+    {
+      "name": "slider",
+      "type": "registry:ui",
+      "title": "Slider",
+      "description": "Pucar-themed slider (release 2026-07-06).",
+      "files": [
+        {
+          "path": "components/ui/slider.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://pucar.example/ui/r/pucar-theme.json"
+      ]
+    },
+    {
+      "name": "sonner",
+      "type": "registry:ui",
+      "title": "Sonner",
+      "description": "Pucar-themed sonner (release 2026-07-06).",
+      "files": [
+        {
+          "path": "components/ui/sonner.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react",
+        "next-themes",
+        "sonner"
+      ],
+      "registryDependencies": [
+        "https://pucar.example/ui/r/pucar-theme.json"
+      ]
+    },
+    {
+      "name": "spinner",
+      "type": "registry:ui",
+      "title": "Spinner",
+      "description": "Pucar-themed spinner (release 2026-07-06).",
+      "files": [
+        {
+          "path": "components/ui/spinner.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://pucar.example/ui/r/pucar-theme.json"
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "Switch",
+      "description": "Pucar-themed switch (release 2026-07-06).",
+      "files": [
+        {
+          "path": "components/ui/switch.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://pucar.example/ui/r/pucar-theme.json"
+      ]
+    },
+    {
+      "name": "table",
+      "type": "registry:ui",
+      "title": "Table",
+      "description": "Pucar-themed table (release 2026-07-06).",
+      "files": [
+        {
+          "path": "components/ui/table.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "https://pucar.example/ui/r/pucar-theme.json"
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "Pucar-themed tabs (release 2026-07-06).",
+      "files": [
+        {
+          "path": "components/ui/tabs.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://pucar.example/ui/r/pucar-theme.json"
+      ]
+    },
+    {
+      "name": "textarea",
+      "type": "registry:ui",
+      "title": "Textarea",
+      "description": "Pucar-themed textarea (release 2026-07-06).",
+      "files": [
+        {
+          "path": "components/ui/textarea.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "https://pucar.example/ui/r/pucar-theme.json"
+      ]
+    },
+    {
+      "name": "toggle-group",
+      "type": "registry:ui",
+      "title": "Toggle group",
+      "description": "Pucar-themed toggle group (release 2026-07-06).",
+      "files": [
+        {
+          "path": "components/ui/toggle-group.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://pucar.example/ui/r/pucar-theme.json",
+        "https://pucar.example/ui/r/toggle.json"
+      ]
+    },
+    {
+      "name": "toggle",
+      "type": "registry:ui",
+      "title": "Toggle",
+      "description": "Pucar-themed toggle (release 2026-07-06).",
+      "files": [
+        {
+          "path": "components/ui/toggle.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://pucar.example/ui/r/pucar-theme.json"
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "description": "Pucar-themed tooltip (release 2026-07-06).",
+      "files": [
+        {
+          "path": "components/ui/tooltip.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://pucar.example/ui/r/pucar-theme.json"
+      ]
+    },
+    {
+      "name": "use-mobile",
+      "type": "registry:hook",
+      "title": "Use mobile",
+      "files": [
+        {
+          "path": "hooks/use-mobile.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "status-pill",
+      "type": "registry:component",
+      "title": "Status pill",
+      "description": "Rounded-full status chip (AA-safe, sentence case).",
+      "files": [
+        {
+          "path": "components/status-pill.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "https://pucar.example/ui/r/pucar-theme.json"
+      ]
+    },
+    {
+      "name": "site-shell",
+      "type": "registry:component",
+      "title": "App shell",
+      "description": "Pucar app frame — sidebar (grouped nav + user block) + top bar. Blocks (case-dashboard, new-case-form) are designed to render inside this shell — add it first and wrap your pages with it (plus the theme provider).",
+      "files": [
+        {
+          "path": "components/site-shell.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "components/theme-toggle.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "components/theme-provider.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "registryDependencies": [
+        "https://pucar.example/ui/r/pucar-theme.json",
+        "https://pucar.example/ui/r/button.json",
+        "https://pucar.example/ui/r/avatar.json"
+      ]
+    },
+    {
+      "name": "case-dashboard",
+      "type": "registry:block",
+      "title": "Case dashboard",
+      "description": "ON Court dashboard — stat cards, filings chart, share-of-docket, today's hearings. Expects to render inside site-shell.",
+      "files": [
+        {
+          "path": "app/(shell)/dashboard/page.tsx",
+          "type": "registry:page",
+          "target": "app/dashboard/page.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "https://pucar.example/ui/r/pucar-theme.json",
+        "https://pucar.example/ui/r/status-pill.json",
+        "https://pucar.example/ui/r/card.json",
+        "https://pucar.example/ui/r/table.json",
+        "https://pucar.example/ui/r/chart.json",
+        "https://pucar.example/ui/r/button.json"
+      ]
+    },
+    {
+      "name": "new-case-form",
+      "type": "registry:block",
+      "title": "New case form",
+      "description": "ON Court intake — sectioned multi-field complaint form. Expects to render inside site-shell.",
+      "files": [
+        {
+          "path": "app/(shell)/settings/page.tsx",
+          "type": "registry:page",
+          "target": "app/new-case/page.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "https://pucar.example/ui/r/pucar-theme.json",
+        "https://pucar.example/ui/r/card.json",
+        "https://pucar.example/ui/r/input.json",
+        "https://pucar.example/ui/r/select.json",
+        "https://pucar.example/ui/r/checkbox.json",
+        "https://pucar.example/ui/r/radio-group.json",
+        "https://pucar.example/ui/r/switch.json",
+        "https://pucar.example/ui/r/textarea.json",
+        "https://pucar.example/ui/r/separator.json",
+        "https://pucar.example/ui/r/button.json",
+        "https://pucar.example/ui/r/label.json"
+      ]
+    }
+  ]
+}

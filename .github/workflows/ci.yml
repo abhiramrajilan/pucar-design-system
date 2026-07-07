@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  tokens:
+    name: AA gate + generated-file drift check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      - name: AA contrast gate
+        run: pnpm gate
+
+      - name: Regenerate tokens + registry
+        run: pnpm tokens
+
+      - name: Generated files must match tokens.ts (no drift, no hand edits)
+        run: |
+          git diff --exit-code -- app/globals.css registry.json public/r || {
+            echo "::error::Generated files are stale or hand-edited. Run 'pnpm tokens' and commit the result."
+            exit 1
+          }
+
+      - name: Lint
+        run: pnpm lint
