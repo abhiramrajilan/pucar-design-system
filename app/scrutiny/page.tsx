@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button"
 import { Popover, PopoverContent } from "@/components/ui/popover"
 import { Switch } from "@/components/ui/switch"
 import { Badge } from "@/components/ui/badge"
+import { Banner } from "@/components/ui/banner"
 
 import { DocumentRail } from "./document-rail"
 import { DocumentViewer } from "./document-viewer"
@@ -61,7 +62,7 @@ export default function ScrutinyPage() {
         </Button>
         <div className="flex min-w-0 flex-col justify-center">
           <div className="flex min-w-0 items-center gap-2.5">
-            <h1 className="truncate text-[17px] leading-6 font-semibold">
+            <h1 className="truncate text-body leading-6 font-semibold">
               CMP/1043/2026 · Om Kumar v. Rakesh Sharma
             </h1>
             <Badge variant="warning" className="shrink-0">
@@ -84,11 +85,13 @@ export default function ScrutinyPage() {
       </header>
 
       {!s.ai && (
-        <div className="flex shrink-0 items-center gap-2.5 border-b bg-info-muted px-4 py-2.5 text-body-compact text-info-muted-foreground">
-          <InfoIcon className="size-4 shrink-0" />
-          AI assistance is unavailable for this file. All checks are manual — documents are grouped by
-          filing section.
-        </div>
+        <Banner variant="info" className="shrink-0 border-b">
+          <InfoIcon />
+          <span>
+            AI assistance is unavailable for this file. All checks are manual — documents are
+            grouped by filing section.
+          </span>
+        </Banner>
       )}
 
       <Popover

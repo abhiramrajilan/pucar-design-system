@@ -19,6 +19,7 @@ import {
   SOLID_FOREGROUND_TOKENS,
   UTILITY_PRIMITIVES,
   CHART_PALETTE,
+  TYPE,
 } from "./tokens"
 
 type Theme = "light" | "dark"
@@ -155,6 +156,25 @@ let mappingFailures = 0
 if (mappingFailures > 0) {
   console.error(`\n✗ Gate failed: ${mappingFailures} utility-mapping problem(s). Fix app/globals.css @theme inline (or tokens.ts) before building.`)
   process.exit(1)
+}
+
+// ── cn() must know the custom type scale — tailwind-merge classifies unknown
+// `text-*` values as COLOURS and silently drops the size when a colour follows
+// (the bug that stripped Badge's caption sizing, 2026-07-21). The classGroups
+// list in lib/utils.ts must therefore always equal Object.keys(TYPE).
+{
+  const utils = readFileSync("lib/utils.ts", "utf8")
+  const arr = utils.match(/text:\s*\[([^\]]+)\]/)
+  const listed = arr ? [...arr[1].matchAll(/"([^"]+)"/g)].map((m) => m[1]) : []
+  const expected = Object.keys(TYPE)
+  const missing = expected.filter((t) => !listed.includes(t))
+  const extra = listed.filter((t) => !expected.includes(t))
+  if (missing.length || extra.length) {
+    console.error(
+      `✗ lib/utils.ts font-size classGroup is out of sync with TYPE — missing: [${missing}] extra: [${extra}]. tailwind-merge will silently drop the missing sizes.`
+    )
+    process.exit(1)
+  }
 }
 
 let failures = 0

@@ -349,7 +349,7 @@ export default function FoundationsPage() {
                       <div className="text-center text-caption tabular-nums text-muted-foreground">
                         {step}
                       </div>
-                      <div className="truncate text-center font-mono text-[10px] text-muted-foreground/70">
+                      <div className="truncate text-center font-mono text-caption text-muted-foreground/70">
                         {values[name] ?? ""}
                       </div>
                     </div>
@@ -499,7 +499,7 @@ export default function FoundationsPage() {
                     gap-{step}
                   </code>
                   <div
-                    className="h-4 shrink-0 rounded-sm bg-brand-accent/70"
+                    className="h-4 shrink-0 rounded-sm bg-brand-accent"
                     style={{ width: px }}
                   />
                   <span className="w-12 shrink-0 text-caption tabular-nums text-muted-foreground">

@@ -2,6 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "pucar",
   "homepage": "https://pucar-ui.vercel.app",
+  "version": "2026.07.21",
   "items": [
     {
       "name": "design-rules",
@@ -473,6 +474,24 @@
       ]
     },
     {
+      "name": "banner",
+      "type": "registry:ui",
+      "title": "Banner",
+      "description": "Pucar-themed banner (release 2026-07-21).",
+      "files": [
+        {
+          "path": "components/ui/banner.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://pucar-ui.vercel.app/r/pucar-theme.json"
+      ]
+    },
+    {
       "name": "breadcrumb",
       "type": "registry:ui",
       "title": "Breadcrumb",
@@ -620,6 +639,27 @@
       ]
     },
     {
+      "name": "combobox",
+      "type": "registry:ui",
+      "title": "Combobox",
+      "description": "Pucar-themed combobox (release 2026-07-21).",
+      "files": [
+        {
+          "path": "components/ui/combobox.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://pucar-ui.vercel.app/r/pucar-theme.json",
+        "https://pucar-ui.vercel.app/r/button.json",
+        "https://pucar-ui.vercel.app/r/command.json",
+        "https://pucar-ui.vercel.app/r/popover.json"
+      ]
+    },
+    {
       "name": "command",
       "type": "registry:ui",
       "title": "Command",
@@ -638,6 +678,48 @@
         "https://pucar-ui.vercel.app/r/pucar-theme.json",
         "https://pucar-ui.vercel.app/r/dialog.json",
         "https://pucar-ui.vercel.app/r/input-group.json"
+      ]
+    },
+    {
+      "name": "context-menu",
+      "type": "registry:ui",
+      "title": "Context menu",
+      "description": "Pucar-themed context menu (release 2026-07-21).",
+      "files": [
+        {
+          "path": "components/ui/context-menu.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://pucar-ui.vercel.app/r/pucar-theme.json"
+      ]
+    },
+    {
+      "name": "date-picker",
+      "type": "registry:ui",
+      "title": "Date picker",
+      "description": "Pucar-themed date picker (release 2026-07-21).",
+      "files": [
+        {
+          "path": "components/ui/date-picker.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "date-fns",
+        "lucide-react",
+        "react-day-picker"
+      ],
+      "registryDependencies": [
+        "https://pucar-ui.vercel.app/r/pucar-theme.json",
+        "https://pucar-ui.vercel.app/r/button.json",
+        "https://pucar-ui.vercel.app/r/calendar.json",
+        "https://pucar-ui.vercel.app/r/popover.json"
       ]
     },
     {
@@ -842,6 +924,21 @@
       ]
     },
     {
+      "name": "kbd",
+      "type": "registry:ui",
+      "title": "Kbd",
+      "description": "Pucar-themed kbd (release 2026-07-21).",
+      "files": [
+        {
+          "path": "components/ui/kbd.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "https://pucar-ui.vercel.app/r/pucar-theme.json"
+      ]
+    },
+    {
       "name": "label",
       "type": "registry:ui",
       "title": "Label",
@@ -1027,6 +1124,25 @@
       ]
     },
     {
+      "name": "session-timeout",
+      "type": "registry:ui",
+      "title": "Session timeout",
+      "description": "Pucar-themed session timeout (release 2026-07-21).",
+      "files": [
+        {
+          "path": "components/ui/session-timeout.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://pucar-ui.vercel.app/r/pucar-theme.json",
+        "https://pucar-ui.vercel.app/r/alert-dialog.json"
+      ]
+    },
+    {
       "name": "sheet",
       "type": "registry:ui",
       "title": "Sheet",
@@ -1145,6 +1261,24 @@
       ]
     },
     {
+      "name": "stepper",
+      "type": "registry:ui",
+      "title": "Stepper",
+      "description": "Pucar-themed stepper (release 2026-07-21).",
+      "files": [
+        {
+          "path": "components/ui/stepper.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://pucar-ui.vercel.app/r/pucar-theme.json"
+      ]
+    },
+    {
       "name": "switch",
       "type": "registry:ui",
       "title": "Switch",
@@ -1204,6 +1338,21 @@
       "files": [
         {
           "path": "components/ui/textarea.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "https://pucar-ui.vercel.app/r/pucar-theme.json"
+      ]
+    },
+    {
+      "name": "timeline",
+      "type": "registry:ui",
+      "title": "Timeline",
+      "description": "Pucar-themed timeline (release 2026-07-21).",
+      "files": [
+        {
+          "path": "components/ui/timeline.tsx",
           "type": "registry:ui"
         }
       ],

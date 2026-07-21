@@ -265,11 +265,12 @@ export function GalleryExtra() {
                 />
                 <ChartTooltip content={<ChartTooltipContent />} />
                 <ChartLegend content={<ChartLegendContent />} />
-                <Bar dataKey="filed" fill="var(--color-filed)" radius={4} />
+                <Bar dataKey="filed" fill="var(--color-filed)" radius={4} isAnimationActive={false} />
                 <Bar
                   dataKey="disposed"
                   fill="var(--color-disposed)"
                   radius={4}
+                  isAnimationActive={false}
                 />
               </BarChart>
             </ChartContainer>
@@ -292,6 +293,7 @@ export function GalleryExtra() {
                   stroke="var(--color-days)"
                   strokeWidth={2}
                   dot={false}
+                  isAnimationActive={false}
                 />
               </LineChart>
             </ChartContainer>

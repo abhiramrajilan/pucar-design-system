@@ -38,7 +38,7 @@
 ## 2 · Status & feedback
 
 **The decision tree (Carbon's split, adapted):**
-- Known *before* the page renders, can't be dismissed → **banner region** (compose with `bg-info-muted`, as scrutiny does) — it loads with the page and is information, not feedback.
+- Known *before* the page renders, can't be dismissed → **banner** — it loads with the page and is information, not feedback.
 - Result of a user/system action, tied to *this section* of the page, must be read → **alert** (inline, persistent until resolved).
 - Result of a background/async action, tied to *no particular section* → **toast** (`sonner`; auto-dismisses, so never put anything the user must act on in one).
 - A problem with *one field* → inline `field` error under that field. Never a toast for a field error; never an alert for a success.
@@ -47,7 +47,7 @@
 ### alert
 - **Job.** Blocking, contextual information the user must read before continuing with the section below it.
 - **Use when** an error/warning/notice relates to the content it sits above, and must persist until resolved.
-- **Don't use** for transient success ("Saved") → toast; for page-level standing notices → banner region; for one field's problem → `field` error.
+- **Don't use** for transient success ("Saved") → toast; for page-level standing notices → `banner`; for one field's problem → `field` error.
 - **Variants.** `default` (neutral notice) and `destructive` (the title and icon carry the status ink; the description stays muted — a wall of red text shouts).
 
 ### sonner (toast)
@@ -73,6 +73,16 @@
 - **Job.** Loading placeholder that mirrors the final layout — same heights, same grid.
 - **Use when** a page or region is fetching its initial data.
 - **Don't use** shapeless grey boxes that don't match what will render — the mirror is the point.
+
+### banner
+- **Job.** Full-width standing notice that loads with the page and persists while the condition holds ("Read-only during scrutiny", "Hearing adjourned to 14 Aug").
+- **Use when** the notice is *state*, not the result of an action; not dismissible by default (Carbon's callout rule).
+- **Don't use** as feedback → alert (contextual) or toast (background); never stack more than one — two standing notices means the page needs redesigning.
+
+### session-timeout
+- **Job.** The WCAG 2.2.1 expiry warning: countdown + one-press extend, before a long form's session dies.
+- **Use when** any authenticated flow can expire with unsaved work — court filings always qualify.
+- **The safe action (staying signed in) is the primary**; the countdown is announced politely. Timing logic lives in the app.
 
 ### empty
 - **Job.** The canonical empty state: icon, one-line title, one supportive sentence, the first action.
@@ -110,6 +120,16 @@
 ### select
 - **Job.** One choice from >5 options where showing all would crowd the screen.
 - **Don't use** for ≤5 options → `radio-group`/`toggle-group` (visible options, one tap — hiding 3 choices behind a dropdown is pure friction); for one-of-many with search (party names, police stations) → command-in-popover (combobox pattern).
+
+### combobox
+- **Job.** One choice from many, with search (party names, police stations, court lists).
+- **Use when** typing beats scrolling — long lists with recognisable names.
+- **Don't use** for ≤5 options → radio/toggle group; for >5 without search need → `select`; the trigger always echoes the selection (never placeholder-only).
+
+### date-picker
+- **Job.** Field-shaped date choice: 40px trigger + calendar popover (single or range).
+- **Use when** the week context matters (hearings, adjournments, cause-list windows).
+- **Don't use** for known dates users can type faster (DOB) → segmented text inputs (GOV.UK memorable-dates pattern).
 
 ### checkbox
 - **Job.** Independent yes/no declarations, or many-of-N selection.
@@ -203,6 +223,10 @@
 - **Job.** Actions on the thing you clicked (row `…` menu, header account menu).
 - **Don't use** for choosing form data → `select` (form semantics, typeahead); destructive items use the ink + tint treatment and sit last, separated.
 
+### context-menu
+- **Job.** Right-click accelerators on the thing under the cursor (staff tables, document viewer).
+- **Every action here must also exist somewhere visible** — right-click is an accelerator, never the only path; touch users never see one.
+
 ### menubar
 - **Job.** Desktop application-style command surface (document workspace: File/View/Help).
 - **Don't use** for site navigation → `navigation-menu` or the sidebar. Staff-only; citizens never need a menubar.
@@ -229,6 +253,11 @@
 - **Job.** Parallel views of the same object (Overview / Documents / Orders on one case).
 - **Don't use** for sequential steps → stepper pattern (multi-step flows are ordered; tabs imply free order); don't nest tabs; >5 tabs means the object wants a different layout.
 
+### stepper
+- **Job.** Progress indicator for ordered multi-step flows (the filing wizard).
+- **Use when** a citizen flow has ≥3 steps — screen-craft §7 makes the indicator mandatory.
+- **Don't use** for parallel views → `tabs`; completed state is check + label, never colour alone.
+
 ### breadcrumb
 - **Job.** Ancestry trail on detail pages — where this page sits, one click up.
 - **Don't use** on top-level pages (nothing above them) or as a step indicator.
@@ -252,6 +281,14 @@
 ### avatar
 - **Job.** A person, as image or monogram. Monogram tiles use the `brand-muted` pair.
 - **Don't use** for organisations/objects → an icon tile; never as decoration.
+
+### timeline
+- **Job.** The chronology of one matter: past = muted dot, current = brand, future = hollow.
+- **Use when** showing where a case stands in its life; not a feed, not an activity log with actions (those are list screens).
+
+### kbd
+- **Job.** A keyboard key as a key — documenting shortcuts in palettes, menus, help.
+- **Don't** make a shortcut discoverable *only* through kbd hints; it decorates, the visible control is the path.
 
 ### chart
 - **Job.** Data visualisation on the categorical palette (`chart-1…5`) — chosen for mutual distinction.

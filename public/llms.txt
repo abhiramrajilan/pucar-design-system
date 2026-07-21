@@ -23,8 +23,8 @@ Sentence case. Teal rationed. Status = meaning (chips/inks), charts = categorica
 - Elevation: shadow-raised · shadow-overlay · shadow-modal (per-theme values) · radius knob 0.625rem (rounded-sm/md/lg/xl/full by ROLE)
 - Solid foregrounds flip white→ink in dark: primary-foreground · destructive-foreground · success-foreground · info-foreground · sidebar-primary-foreground
 
-## Components (components/ui/ — 48 primitives, all registry-installable)
-accordion · alert · alert-dialog · avatar · badge · breadcrumb · button · button-group · calendar · card · chart · checkbox · collapsible · command · description-list · dialog · document-slot · drawer · dropdown-menu · empty · field · hover-card · input · input-group · input-otp · label · menubar · navigation-menu · pagination · popover · progress · radio-group · scroll-area · select · separator · sheet · sidebar · skeleton · slider · sonner · spinner · switch · table · tabs · textarea · toggle · toggle-group · tooltip
+## Components (components/ui/ — 56 primitives, all registry-installable)
+accordion · alert · alert-dialog · avatar · badge · banner · breadcrumb · button · button-group · calendar · card · chart · checkbox · collapsible · combobox · command · context-menu · date-picker · description-list · dialog · document-slot · drawer · dropdown-menu · empty · field · hover-card · input · input-group · input-otp · kbd · label · menubar · navigation-menu · pagination · popover · progress · radio-group · scroll-area · select · separator · session-timeout · sheet · sidebar · skeleton · slider · sonner · spinner · stepper · switch · table · tabs · textarea · timeline · toggle · toggle-group · tooltip
 
 ## Patterns & blocks
 - **use-mobile** (hook) —

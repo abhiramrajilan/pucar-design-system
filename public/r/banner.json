@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "banner",
+  "title": "Banner",
+  "description": "Pucar-themed banner (release 2026-07-21).",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "registryDependencies": [
+    "https://pucar-ui.vercel.app/r/pucar-theme.json"
+  ],
+  "files": [
+    {
+      "path": "components/ui/banner.tsx",
+      "content": "import * as React from \"react\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\n\nimport { cn } from \"@/lib/utils\"\n\n// Full-width standing notice that LOADS WITH THE PAGE (Carbon's callout\n// semantics): it is information, not feedback — not triggered by an action,\n// not dismissible by default, always present while the condition holds\n// (\"Hearing adjourned to 14 Aug\", \"Scrutiny in read-only mode\"). Feedback on\n// an action -> alert (contextual) or toast (background). Pair the tint with\n// an icon or label — never colour alone.\nconst bannerVariants = cva(\n  \"flex w-full items-center gap-2.5 px-4 py-2.5 text-body-compact [&_svg]:size-4 [&_svg]:shrink-0\",\n  {\n    variants: {\n      variant: {\n        info: \"bg-info-muted text-info-muted-foreground\",\n        warning: \"bg-warning-muted text-warning-muted-foreground\",\n        success: \"bg-success-muted text-success-muted-foreground\",\n        neutral: \"bg-surface-sunken text-foreground\",\n      },\n    },\n    defaultVariants: {\n      variant: \"info\",\n    },\n  }\n)\n\nfunction Banner({\n  className,\n  variant = \"info\",\n  ...props\n}: React.ComponentProps<\"div\"> & VariantProps<typeof bannerVariants>) {\n  return (\n    <div\n      data-slot=\"banner\"\n      data-variant={variant}\n      role=\"status\"\n      className={cn(bannerVariants({ variant }), className)}\n      {...props}\n    />\n  )\n}\n\n/** Optional trailing slot — a link or quiet action, pushed to the end. */\nfunction BannerAction({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"banner-action\"\n      className={cn(\"ml-auto shrink-0\", className)}\n      {...props}\n    />\n  )\n}\n\nexport { Banner, BannerAction }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

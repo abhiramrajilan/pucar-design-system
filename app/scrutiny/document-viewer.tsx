@@ -192,7 +192,7 @@ export function DocumentViewer({ s }: { s: ScrutinyState }) {
         )}
         <div
           ref={canvasRef}
-          className={cn("flex h-full items-start justify-center overflow-auto p-9", s.rectTool && "cursor-crosshair")}
+          className={cn("flex h-full items-start justify-center overflow-auto p-8", s.rectTool && "cursor-crosshair")}
         >
           {(() => {
             const pageEl = (

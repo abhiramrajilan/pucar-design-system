@@ -57,7 +57,7 @@ function CompleteProfileDialog() {
     <DialogContent className="gap-0 p-0 sm:max-w-md">
       {/* Left-aligned, quiet header — the system's own modal voice (cf. the payment dialog),
           not a generic centered onboarding badge. */}
-      <DialogHeader className="space-y-1.5 p-6 pb-5">
+      <DialogHeader className="space-y-1.5 p-6 pb-6">
         <DialogTitle className="text-title-s">Complete your profile</DialogTitle>
         <DialogDescription>
           A few details to finish setting up your ON Court account.
@@ -68,7 +68,7 @@ function CompleteProfileDialog() {
 
       {/* Single column, generous rhythm; label above field, hint in caption below (screen-craft §2). */}
       <form className="p-6" onSubmit={(e) => e.preventDefault()}>
-        <div className="space-y-5">
+        <div className="space-y-6">
           {fields.map((field) => (
             <div key={field.id} className="space-y-2">
               <Label htmlFor={field.id}>{field.label}</Label>

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "date-picker",
+  "title": "Date picker",
+  "description": "Pucar-themed date picker (release 2026-07-21).",
+  "dependencies": [
+    "date-fns",
+    "lucide-react",
+    "react-day-picker"
+  ],
+  "registryDependencies": [
+    "https://pucar-ui.vercel.app/r/pucar-theme.json",
+    "https://pucar-ui.vercel.app/r/button.json",
+    "https://pucar-ui.vercel.app/r/calendar.json",
+    "https://pucar-ui.vercel.app/r/popover.json"
+  ],
+  "files": [
+    {
+      "path": "components/ui/date-picker.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { format } from \"date-fns\"\nimport { CalendarIcon } from \"lucide-react\"\nimport type { DateRange } from \"react-day-picker\"\n\nimport { cn } from \"@/lib/utils\"\nimport { Button } from \"@/components/ui/button\"\nimport { Calendar } from \"@/components/ui/calendar\"\nimport {\n  Popover,\n  PopoverContent,\n  PopoverTrigger,\n} from \"@/components/ui/popover\"\n\n// Field-shaped date choice: a 40px trigger echoing the chosen date, opening\n// the calendar in a popover. For dates where week context matters (hearings,\n// adjournments). Known dates the user can type faster (DOB) want segmented\n// text inputs instead — GOV.UK memorable-dates pattern.\nfunction DatePicker({\n  value,\n  onValueChange,\n  placeholder = \"Pick a date\",\n  disabled,\n  id,\n  className,\n}: {\n  value?: Date\n  onValueChange?: (date: Date | undefined) => void\n  placeholder?: string\n  disabled?: boolean\n  id?: string\n  className?: string\n}) {\n  const [open, setOpen] = React.useState(false)\n\n  return (\n    <Popover open={open} onOpenChange={setOpen}>\n      <PopoverTrigger asChild>\n        <Button\n          id={id}\n          variant=\"outline\"\n          disabled={disabled}\n          data-slot=\"date-picker-trigger\"\n          className={cn(\n            \"w-full justify-start border-input font-normal\",\n            !value && \"text-muted-foreground\",\n            className\n          )}\n        >\n          <CalendarIcon className=\"text-muted-foreground\" />\n          {value ? format(value, \"d MMMM yyyy\") : placeholder}\n        </Button>\n      </PopoverTrigger>\n      <PopoverContent className=\"w-auto p-0\" align=\"start\">\n        <Calendar\n          mode=\"single\"\n          selected={value}\n          onSelect={(d) => {\n            onValueChange?.(d)\n            setOpen(false)\n          }}\n          captionLayout=\"dropdown\"\n          autoFocus\n        />\n      </PopoverContent>\n    </Popover>\n  )\n}\n\n// Range variant — adjournment windows, cause-list spans. Same anatomy.\nfunction DateRangePicker({\n  value,\n  onValueChange,\n  placeholder = \"Pick a date range\",\n  disabled,\n  id,\n  className,\n}: {\n  value?: DateRange\n  onValueChange?: (range: DateRange | undefined) => void\n  placeholder?: string\n  disabled?: boolean\n  id?: string\n  className?: string\n}) {\n  return (\n    <Popover>\n      <PopoverTrigger asChild>\n        <Button\n          id={id}\n          variant=\"outline\"\n          disabled={disabled}\n          data-slot=\"date-range-picker-trigger\"\n          className={cn(\n            \"w-full justify-start border-input font-normal\",\n            !value?.from && \"text-muted-foreground\",\n            className\n          )}\n        >\n          <CalendarIcon className=\"text-muted-foreground\" />\n          {value?.from ? (\n            value.to ? (\n              <>\n                {format(value.from, \"d MMM yyyy\")} – {format(value.to, \"d MMM yyyy\")}\n              </>\n            ) : (\n              format(value.from, \"d MMM yyyy\")\n            )\n          ) : (\n            placeholder\n          )}\n        </Button>\n      </PopoverTrigger>\n      <PopoverContent className=\"w-auto p-0\" align=\"start\">\n        <Calendar\n          mode=\"range\"\n          selected={value}\n          onSelect={onValueChange}\n          numberOfMonths={2}\n          autoFocus\n        />\n      </PopoverContent>\n    </Popover>\n  )\n}\n\nexport { DatePicker, DateRangePicker }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

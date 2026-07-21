@@ -1,0 +1,6 @@
+#!/bin/sh
+# Pucar pre-commit — the fast checks (no build): AA gate + law-lint.
+# Enable once per clone:  git config core.hooksPath .githooks
+set -e
+pnpm gate
+pnpm lawlint

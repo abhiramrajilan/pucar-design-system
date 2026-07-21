@@ -226,7 +226,7 @@ export default function NewCasePage() {
         title="Documents & options"
         description="Attach supporting documents and set hearing preferences."
       >
-        <div className="space-y-5">
+        <div className="space-y-6">
           <div className="rounded-lg border border-dashed p-6 text-center">
             <UploadCloudIcon className="mx-auto size-6 text-muted-foreground" />
             <p className="mt-2 text-body-compact font-medium">Drop files or browse</p>

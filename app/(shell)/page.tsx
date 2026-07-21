@@ -145,6 +145,7 @@ import {
 } from "@/components/ui/document-slot"
 
 import { GalleryExtra } from "./gallery-extra"
+import { GalleryPatterns } from "./gallery-patterns"
 import { Section } from "./gallery-section"
 
 const invoices = [
@@ -366,7 +367,7 @@ export default function ComponentsGallery() {
           <div className="space-y-3">
             <DocumentSlot variant="filled">
               <DocumentSlotMedia>
-                <span className="absolute bottom-1 left-1 rounded-sm bg-foreground px-1 text-[9px] font-bold tracking-wide text-background">
+                <span className="absolute bottom-1 left-1 rounded-sm bg-foreground px-1 text-caption font-bold tracking-wide text-background">
                   JPG
                 </span>
               </DocumentSlotMedia>
@@ -754,7 +755,7 @@ export default function ComponentsGallery() {
               </CardAction>
             </CardHeader>
             <CardContent>
-              <div className="text-3xl font-semibold tabular-nums">$48,120</div>
+              <div className="text-title-l tabular-nums">₹48,120</div>
               <p className="mt-1 text-body-compact text-muted-foreground">
                 <span className="text-foreground">▲ 12.5%</span> vs last month
               </p>
@@ -792,6 +793,8 @@ export default function ComponentsGallery() {
       </Section>
 
       <GalleryExtra />
+
+      <GalleryPatterns />
     </div>
   )
 }

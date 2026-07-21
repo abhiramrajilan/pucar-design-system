@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "eslint",
     "gate": "tsx lib/tokens/gate.ts",
-    "tokens": "tsx lib/tokens/gate.ts && tsx lib/tokens/build-css.ts && tsx lib/tokens/build-registry.ts && tsx lib/tokens/build-llms.ts && shadcn build"
+    "tokens": "tsx lib/tokens/gate.ts && tsx lib/tokens/law-lint.ts && tsx lib/tokens/build-css.ts && tsx lib/tokens/build-registry.ts && tsx lib/tokens/build-llms.ts && shadcn build",
+    "lawlint": "tsx lib/tokens/law-lint.ts",
+    "test:visual": "playwright test"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",
@@ -31,6 +33,7 @@
     "vaul": "^1.1.2"
   },
   "devDependencies": {
+    "@playwright/test": "^1.61.1",
     "@radix-ui/colors": "^3.0.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",

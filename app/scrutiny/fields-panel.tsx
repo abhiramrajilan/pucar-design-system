@@ -280,7 +280,7 @@ function AiCallout({ f, s, stop }: { f: FieldDef; s: ScrutinyState; stop: (e: Re
   const src = DOCS.find((d) => d.id === ai.srcDoc)!
   return (
     <div className="mt-2.5 rounded-md border-l-[3px] border-warning bg-warning-muted/50 px-3 py-2.5">
-      <div className="flex items-center gap-1.5 text-[11px] font-semibold text-warning-muted-foreground">
+      <div className="flex items-center gap-1.5 text-caption font-semibold text-warning-muted-foreground">
         <SparklesIcon className="size-3" />
         {ai.kind === "lowconf" ? "AI could not read this clearly" : "AI found a mismatch"}
       </div>
@@ -325,7 +325,7 @@ function FlagCallouts({ f, s, stop }: { f: FieldDef; s: ScrutinyState; stop: (e:
             <FlagIcon className="size-3" />
             Your flag
             {fl.audio && (
-              <span className="inline-flex items-center gap-1 rounded-full bg-muted px-2 py-0.5 text-[11px] font-medium text-muted-foreground">
+              <span className="inline-flex items-center gap-1 rounded-full bg-muted px-2 py-0.5 text-caption font-medium text-muted-foreground">
                 <PlayIcon className="size-2.5" />
                 0:{String(fl.dur).padStart(2, "0")}
               </span>

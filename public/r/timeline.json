@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "timeline",
+  "title": "Timeline",
+  "description": "Pucar-themed timeline (release 2026-07-21).",
+  "registryDependencies": [
+    "https://pucar-ui.vercel.app/r/pucar-theme.json"
+  ],
+  "files": [
+    {
+      "path": "components/ui/timeline.tsx",
+      "content": "import * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\n\n// Case progress as a vertical timeline (screen-craft §5): past = muted dot,\n// current = brand dot, future = hollow dot. For the chronology of ONE matter —\n// not a feed, not an activity log with actions (that's a list screen).\n// Status at each step is words + dot, never colour alone.\nfunction Timeline({ className, ...props }: React.ComponentProps<\"ol\">) {\n  return (\n    <ol\n      data-slot=\"timeline\"\n      className={cn(\"flex flex-col\", className)}\n      {...props}\n    />\n  )\n}\n\nfunction TimelineItem({\n  className,\n  status = \"future\",\n  children,\n  ...props\n}: React.ComponentProps<\"li\"> & {\n  /** past = done · current = where the case is now · future = not yet reached */\n  status?: \"past\" | \"current\" | \"future\"\n}) {\n  return (\n    <li\n      data-slot=\"timeline-item\"\n      data-status={status}\n      className={cn(\"group/timeline-item relative flex gap-4 pb-8 last:pb-0\", className)}\n      {...props}\n    >\n      {/* Rail: dot + connector. The connector is structural, not interactive → border colour. */}\n      <div aria-hidden=\"true\" className=\"flex flex-col items-center\">\n        <div\n          data-slot=\"timeline-dot\"\n          className={cn(\n            \"mt-1 size-3 shrink-0 rounded-full\",\n            status === \"past\" && \"bg-muted-foreground\",\n            status === \"current\" && \"bg-primary ring-3 ring-brand-muted\",\n            status === \"future\" && \"border-2 border-border bg-background\"\n          )}\n        />\n        <div className=\"mt-1 w-px flex-1 bg-border group-last/timeline-item:hidden\" />\n      </div>\n      <div className=\"min-w-0 flex-1 pb-1\">{children}</div>\n    </li>\n  )\n}\n\nfunction TimelineTitle({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"timeline-title\"\n      className={cn(\n        \"text-body font-medium group-data-[status=future]/timeline-item:text-muted-foreground\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\nfunction TimelineMeta({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"timeline-meta\"\n      className={cn(\"mt-0.5 text-caption text-muted-foreground\", className)}\n      {...props}\n    />\n  )\n}\n\nfunction TimelineContent({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"timeline-content\"\n      className={cn(\"mt-2 text-body-compact text-muted-foreground\", className)}\n      {...props}\n    />\n  )\n}\n\nexport { Timeline, TimelineItem, TimelineTitle, TimelineMeta, TimelineContent }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

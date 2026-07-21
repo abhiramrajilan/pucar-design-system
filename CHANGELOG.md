@@ -1,8 +1,27 @@
 # Changelog
 
 All user-visible changes to the Pucar · ON Court design system. Newest first.
+Releases are dated (calver, stamped into the registry as `version`). Breaking
+changes get an entry in **Migrations** below, in the same PR.
+
+## Migrations (breaking changes)
+
+- **2026-07-21 — `status-pill` removed; merged into `badge`.** Map the old
+  `tone` prop to Badge's `variant`: `ready` → `success`, `waiting` → `warning`,
+  `urgent` → `destructive`, `info` → `info`, `neutral` → `secondary`. Anatomy
+  changed 20px→24px pill; alpha `bg-destructive/10` styling replaced by the
+  opaque `destructive-muted` pair.
+- **2026-07-21 — `Button` secondary lost its border; soft `destructive` variant
+  now escalates to the solid pair on hover.** No API change; visual only.
 
 ## 2026-07-21
+
+### Added (mechanized law + eight components — Tracks 3 & 4, same day)
+- **Law-lint** (`pnpm lawlint`, in `pnpm tokens` + CI): six mechanical rules — bare `rounded`, raw `neutral-N`, raw Tailwind type sizes, arbitrary pixel type, alpha status/brand fills, off-ladder spacing — with a justified allowlist that fails when stale. Calibration itself caught and fixed 20+ live violations.
+- **Visual regression** (`pnpm test:visual`): Playwright screenshots of the gallery, foundations, and dashboard — light + dark × desktop + mobile — against committed baselines; CI job bootstraps linux baselines as an artifact on first run.
+- **Gate now asserts `cn()` knows the type scale** (the tailwind-merge silent-drop bug class) and the registry carries a calver `version`; breaking changes get a **Migrations** section (started with the chip merge). Pre-commit hook at `.githooks/` runs gate + law-lint.
+- **Eight new components**, each with usage law + gallery section: `timeline` (case chronology — the law referenced it before it existed), `session-timeout` (the open WCAG 2.2.1 item), `stepper` (multi-step flows), `combobox` (search-a-long-list), `date-picker` (+range), `banner` (standing notices — scrutiny's hand-rolled one replaced), `context-menu`, `kbd`.
+- **Filter-chip row pattern** demonstrated in the gallery (removable chips + visible result count).
 
 ### Added (usage + motion law — Track 2, same day)
 - **component-usage.md** — the third law doc: when/how to use each of the 48 components (job · use when · don't use → instead · variant meanings) plus decision trees for actions, feedback, containers, overlays, and navigation. Grammar grounded in GOV.UK, USWDS, and Carbon.

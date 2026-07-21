@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "stepper",
+  "title": "Stepper",
+  "description": "Pucar-themed stepper (release 2026-07-21).",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "https://pucar-ui.vercel.app/r/pucar-theme.json"
+  ],
+  "files": [
+    {
+      "path": "components/ui/stepper.tsx",
+      "content": "import * as React from \"react\"\nimport { CheckIcon } from \"lucide-react\"\n\nimport { cn } from \"@/lib/utils\"\n\n// Progress indicator for MULTI-STEP flows (screen-craft §7: every citizen\n// multi-step flow shows one). Steps are ordered — for parallel views of one\n// object use tabs instead. The current step carries aria-current=\"step\";\n// complete steps show a check (state is icon + label, never colour alone).\nfunction Stepper({ className, ...props }: React.ComponentProps<\"ol\">) {\n  return (\n    <ol\n      data-slot=\"stepper\"\n      className={cn(\"flex items-start gap-2\", className)}\n      {...props}\n    />\n  )\n}\n\nfunction StepperItem({\n  className,\n  status = \"upcoming\",\n  step,\n  label,\n  ...props\n}: React.ComponentProps<\"li\"> & {\n  /** complete = done · current = the step in progress · upcoming = not yet */\n  status?: \"complete\" | \"current\" | \"upcoming\"\n  /** 1-based step number, shown until the step completes */\n  step: number\n  label: string\n}) {\n  return (\n    <li\n      data-slot=\"stepper-item\"\n      data-status={status}\n      aria-current={status === \"current\" ? \"step\" : undefined}\n      className={cn(\"group/step flex flex-1 flex-col items-center gap-2\", className)}\n      {...props}\n    >\n      <div className=\"flex w-full items-center\">\n        {/* leading connector — hidden on the first step */}\n        <div className=\"h-0.5 flex-1 bg-border group-first/step:invisible group-data-[status=complete]/step:bg-primary\" />\n        <div\n          className={cn(\n            \"flex size-8 shrink-0 items-center justify-center rounded-full text-caption font-semibold\",\n            status === \"complete\" && \"bg-primary text-primary-foreground\",\n            status === \"current\" && \"bg-brand-muted text-brand-muted-foreground ring-2 ring-primary\",\n            status === \"upcoming\" && \"border-2 border-border bg-background text-muted-foreground\"\n          )}\n        >\n          {status === \"complete\" ? <CheckIcon className=\"size-4\" /> : step}\n        </div>\n        {/* trailing connector — hidden on the last step */}\n        <div className=\"h-0.5 flex-1 bg-border group-last/step:invisible\" />\n      </div>\n      <div\n        className={cn(\n          \"max-w-24 text-center text-caption\",\n          status === \"current\" ? \"font-semibold text-foreground\" : \"text-muted-foreground\"\n        )}\n      >\n        {label}\n      </div>\n    </li>\n  )\n}\n\nexport { Stepper, StepperItem }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

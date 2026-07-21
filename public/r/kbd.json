@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "kbd",
+  "title": "Kbd",
+  "description": "Pucar-themed kbd (release 2026-07-21).",
+  "registryDependencies": [
+    "https://pucar-ui.vercel.app/r/pucar-theme.json"
+  ],
+  "files": [
+    {
+      "path": "components/ui/kbd.tsx",
+      "content": "import * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\n\n// A keyboard key, rendered as a key: mono caption on a muted cap with a\n// hairline. For documenting shortcuts (command palette, menus, help) — never\n// the only way a shortcut is discoverable, and never for emphasis.\nfunction Kbd({ className, ...props }: React.ComponentProps<\"kbd\">) {\n  return (\n    <kbd\n      data-slot=\"kbd\"\n      className={cn(\n        \"inline-flex h-5 min-w-5 items-center justify-center rounded-sm border bg-muted px-1 font-mono text-caption text-muted-foreground\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\nexport { Kbd }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

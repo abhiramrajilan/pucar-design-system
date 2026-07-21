@@ -136,7 +136,7 @@ export default function DashboardPage() {
               <BarChart data={chartData} margin={{ top: 8 }}>
                 <XAxis dataKey="month" tickLine={false} axisLine={false} tickMargin={8} />
                 <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
-                <Bar dataKey="filings" radius={[6, 6, 0, 0]}>
+                <Bar dataKey="filings" radius={[6, 6, 0, 0]} isAnimationActive={false}>
                   {chartData.map((_, i) => (
                     <Cell
                       key={i}

@@ -519,7 +519,7 @@ export default function FilingDocumentsPage() {
         <DialogContent className="sm:max-w-lg gap-0 p-0">
           <DialogHeader className="flex-row items-center gap-2.5 space-y-0 p-4">
             {preview && (
-              <span className="rounded bg-muted px-1.5 py-0.5 text-caption font-medium text-muted-foreground">
+              <span className="rounded-sm bg-muted px-1.5 py-0.5 text-caption font-medium text-muted-foreground">
                 {preview.type}
               </span>
             )}

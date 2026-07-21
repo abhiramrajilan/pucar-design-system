@@ -27,6 +27,9 @@ jobs:
       - name: AA contrast gate
         run: pnpm gate
 
+      - name: Law-lint (design-law conventions over components/ + app/)
+        run: pnpm lawlint
+
       - name: Regenerate tokens + registry
         run: pnpm tokens
 
@@ -39,3 +42,46 @@ jobs:
 
       - name: Lint
         run: pnpm lint
+
+  visual:
+    name: Visual regression (gallery + foundations + dashboard)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      - name: Install chromium
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: Build
+        run: pnpm build
+
+      - name: Compare against linux baselines (bootstrap them on first run)
+        run: |
+          if [ -d tests/__screenshots__/linux ]; then
+            pnpm test:visual
+          else
+            pnpm test:visual --update-snapshots
+            echo "::warning::No linux baselines were committed yet — generated them in this run. Download the 'visual-baselines-linux' artifact and commit tests/__screenshots__/linux to make this job strict."
+          fi
+
+      - name: Upload baselines / diffs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-baselines-linux
+          path: |
+            tests/__screenshots__/
+            test-results/
+          retention-days: 14

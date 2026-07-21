@@ -25,6 +25,12 @@
 
 If either answer is weak, it's probably a one-off — use an existing token. This is the guardrail against vocabulary sprawl: today `muted`/`surface-sunken` intentionally share a value; ten accidental near-duplicates would dissolve the system.
 
+## Releases & versioning
+
+- A release = a dated CHANGELOG entry (the registry build refuses to run without one); the date is stamped into the registry as calver `version`.
+- **Breaking changes** (removed component, renamed prop/variant, changed token meaning) additionally get an entry in CHANGELOG § Migrations with the old→new mapping, in the same PR.
+- Enable the fast pre-commit checks once per clone: `git config core.hooksPath .githooks` (runs the AA gate + law-lint — seconds, no build).
+
 ## Hard rules (CI enforces the first two)
 
 - Never hand-edit the generated block in `app/globals.css` or `registry.json` / `public/r/*` — they are build outputs.

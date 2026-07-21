@@ -65,7 +65,7 @@ function SummaryRow({
 
 function ConfirmView({ s }: { s: ScrutinyState }) {
   return (
-    <div className="flex flex-col items-center gap-3 px-2 py-7 text-center">
+    <div className="flex flex-col items-center gap-3 px-2 py-8 text-center">
       <div className="flex size-13 items-center justify-center rounded-full bg-success-muted text-success-muted-foreground">
         <CheckIcon className="size-6" />
       </div>

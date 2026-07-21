@@ -79,7 +79,7 @@ export default function CaseDetailPage() {
       {/* Key facts */}
       <Card>
         <CardContent>
-          <dl className="grid grid-cols-2 gap-x-6 gap-y-5 sm:grid-cols-3 lg:grid-cols-6">
+          <dl className="grid grid-cols-2 gap-x-6 gap-y-6 sm:grid-cols-3 lg:grid-cols-6">
             {facts.map((f) => (
               <div key={f.label}>
                 <dt className="text-caption text-muted-foreground">{f.label}</dt>
@@ -101,7 +101,7 @@ export default function CaseDetailPage() {
               <TabsTrigger value="documents">Documents</TabsTrigger>
             </TabsList>
 
-            <TabsContent value="overview" className="pt-5">
+            <TabsContent value="overview" className="pt-6">
               <Card>
                 <CardContent className="text-body text-muted-foreground">
                   A complaint under Section 138 of the Negotiable Instruments Act
@@ -111,7 +111,7 @@ export default function CaseDetailPage() {
               </Card>
             </TabsContent>
 
-            <TabsContent value="hearings" className="pt-5">
+            <TabsContent value="hearings" className="pt-6">
               <Card>
                 <CardContent className="p-0">
                   <ul className="divide-y divide-border">
@@ -142,10 +142,10 @@ export default function CaseDetailPage() {
               </Card>
             </TabsContent>
 
-            <TabsContent value="parties" className="pt-5 text-body-compact text-muted-foreground">
+            <TabsContent value="parties" className="pt-6 text-body-compact text-muted-foreground">
               Complainant, respondent and advocates — see the panel on the right.
             </TabsContent>
-            <TabsContent value="documents" className="pt-5 text-body-compact text-muted-foreground">
+            <TabsContent value="documents" className="pt-6 text-body-compact text-muted-foreground">
               Case documents — see the panel on the right.
             </TabsContent>
           </Tabs>

@@ -56,6 +56,9 @@ if (!releaseMatch) {
   )
 }
 const RELEASE = releaseMatch[1]
+// Calver release id stamped into the registry root. Breaking changes get a
+// MIGRATIONS entry in CHANGELOG.md (CONTRIBUTING § releases).
+const VERSION = RELEASE.replace(/-/g, ".")
 
 function primitives(theme: Theme): Vars {
   const o: Vars = {}
@@ -218,6 +221,7 @@ const registry = {
   $schema: "https://ui.shadcn.com/schema/registry.json",
   name: "pucar",
   homepage: HOMEPAGE,
+  version: VERSION,
   items: [
     {
       name: "design-rules",

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "session-timeout",
+  "title": "Session timeout",
+  "description": "Pucar-themed session timeout (release 2026-07-21).",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "https://pucar-ui.vercel.app/r/pucar-theme.json",
+    "https://pucar-ui.vercel.app/r/alert-dialog.json"
+  ],
+  "files": [
+    {
+      "path": "components/ui/session-timeout.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { ClockIcon } from \"lucide-react\"\n\nimport {\n  AlertDialog,\n  AlertDialogAction,\n  AlertDialogCancel,\n  AlertDialogContent,\n  AlertDialogDescription,\n  AlertDialogFooter,\n  AlertDialogHeader,\n  AlertDialogTitle,\n} from \"@/components/ui/alert-dialog\"\n\n// Session-expiry warning (WCAG 2.2.1): court filings are long forms, and a\n// silent expiry destroys a citizen's work. Show this BEFORE the session ends,\n// with enough time to act; extending must be one press. The timing logic\n// (when to open, what extending does) lives in the app — this component is\n// the accessible warning surface. The countdown is announced politely, and\n// the safe action (staying signed in) is the primary.\nfunction SessionTimeoutDialog({\n  open,\n  secondsRemaining,\n  onExtend,\n  onSignOut,\n  title = \"Your session is about to end\",\n  description = \"You've been inactive for a while. To protect your information, you'll be signed out soon — any unsaved work in this filing will be kept as a draft.\",\n  extendLabel = \"Stay signed in\",\n  signOutLabel = \"Sign out now\",\n}: {\n  open: boolean\n  /** Seconds until the session expires — the app ticks this down. */\n  secondsRemaining: number\n  onExtend: () => void\n  onSignOut: () => void\n  title?: string\n  description?: string\n  extendLabel?: string\n  signOutLabel?: string\n}) {\n  const minutes = Math.floor(Math.max(0, secondsRemaining) / 60)\n  const seconds = Math.max(0, secondsRemaining) % 60\n  const clock = `${minutes}:${String(seconds).padStart(2, \"0\")}`\n\n  return (\n    <AlertDialog open={open}>\n      <AlertDialogContent data-slot=\"session-timeout\">\n        <AlertDialogHeader>\n          <AlertDialogTitle className=\"flex items-center gap-2\">\n            <ClockIcon className=\"size-4 text-warning-ink\" aria-hidden=\"true\" />\n            {title}\n          </AlertDialogTitle>\n          <AlertDialogDescription>{description}</AlertDialogDescription>\n        </AlertDialogHeader>\n        {/* aria-live polite: announced without interrupting; visually the one number that matters */}\n        <p aria-live=\"polite\" className=\"text-body\">\n          Time remaining:{\" \"}\n          <span className=\"font-mono font-semibold tabular-nums\">{clock}</span>\n        </p>\n        <AlertDialogFooter>\n          <AlertDialogCancel onClick={onSignOut}>{signOutLabel}</AlertDialogCancel>\n          {/* Staying signed in is the SAFE action — it gets the primary. */}\n          <AlertDialogAction onClick={onExtend}>{extendLabel}</AlertDialogAction>\n        </AlertDialogFooter>\n      </AlertDialogContent>\n    </AlertDialog>\n  )\n}\n\nexport { SessionTimeoutDialog }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}
