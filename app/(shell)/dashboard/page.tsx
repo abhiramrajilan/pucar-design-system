@@ -182,7 +182,7 @@ export default function DashboardPage() {
         <CardHeader>
           <div className="flex items-center justify-between gap-4">
             <div className="space-y-1">
-              <CardTitle>Today's hearings</CardTitle>
+              <CardTitle>Today&apos;s hearings</CardTitle>
               <CardDescription>Cause list · 4 of 27 shown</CardDescription>
             </div>
             <Button variant="ghost" size="sm">

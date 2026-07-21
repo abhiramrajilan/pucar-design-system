@@ -32,7 +32,7 @@ jobs:
 
       - name: Generated files must match tokens.ts (no drift, no hand edits)
         run: |
-          git diff --exit-code -- app/globals.css registry.json public/r || {
+          git diff --exit-code -- app/globals.css registry.json public/r public/llms.txt || {
             echo "::error::Generated files are stale or hand-edited. Run 'pnpm tokens' and commit the result."
             exit 1
           }

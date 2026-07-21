@@ -1,31 +1,38 @@
 # Pucar · ON Court — design system
 
-Pucar's design system for the ON Court product (Indian courts — Section 138, CNR, hearings; Kerala). Built on shadcn/ui + Tailwind v4, Radix-anchored tokens in OKLCH-safe hex, verified WCAG 2.2 AA in light and dark.
+Pucar's design system for the ON Court product (Indian courts — Section 138, CNR, hearings; Kerala). Built on shadcn/ui + Tailwind v4, Radix-anchored tokens, machine-verified WCAG 2.2 AA in light and dark (the build fails below the floor).
 
 ## Read first (the design law + the craft)
-- **design-guidelines.md** — the LAW: sentence case only, brand teal rationed to primary/active/focus, status colours mean status, categorical palette for charts, AA floor, calibrated greys that survive bad monitors, generous spacing, never colour alone, calm/friendly tone.
-- **screen-craft.md** — the CRAFT: spacing ladder + proximity rules, page scaffolds (form/list/detail/dashboard/empty), hierarchy & squint test, UX patterns (dialog vs sheet vs page, feedback, filtering, disclosure), the 5 screen states, citizen vs staff density, and the mandatory pre-done review pass. Generating ANY screen? Follow both.
-
-## Foundations — tokens (source of truth: lib/tokens/tokens.ts → `pnpm tokens`)
-- Surfaces/text: `background` `foreground` `card` `popover` (+ `-foreground`)
-- Brand/neutral: `primary` (teal #007E7E) `secondary` `muted` `accent` (+ `-foreground`)
-- Status fills: `destructive` `success` `warning` `info` (+ `-foreground`); chips: `success-muted` `warning-muted` `info-muted` (+ `-foreground`)
-- Structure: `border` `input` `ring`; brand tint (non-text): `brand-accent`
-- Data-viz (categorical, distinct hues): `chart-1` teal · `chart-2` blue · `chart-3` violet · `chart-4` amber · `chart-5` rose
-- Sidebar: `sidebar` `sidebar-foreground` `sidebar-primary` `sidebar-accent` `sidebar-border` `sidebar-ring`
-- Type scale (sentence case, weight ladder): `text-caption` `text-body-compact` `text-body` `text-title-s` `text-title` `text-title-l` `text-display-s` `text-display`
-- Spacing 4/8 grid · radius 10px (`rounded-lg/md/…`) · elevation `shadow-raised/overlay/modal`
-- Font: Helvetica Neue system stack (zero-download).
-
-## Components & patterns (components/ui/, app/)
-- Primitives: button, input, select, checkbox, radio-group, switch, slider, textarea, label, field (form anatomy: label above, caption hint, destructive+text error), button-group, card, table, tabs, dialog, sheet, drawer, popover, dropdown-menu, tooltip, alert, badge, avatar, progress, skeleton, spinner (in-context pending only — pages load with skeletons), empty (canonical empty state), sonner (toast), chart, breadcrumb, pagination, command, calendar, …
-- Patterns: site-shell (app frame w/ sidebar + top bar + user block), status pill chips, share-of-docket, stat cards with signed deltas, case dashboard (app/dashboard), new-case form (app/settings).
-- Live gallery: `/` renders every component against current tokens (the review surface).
-
-## Install elsewhere (registry)
-- `npx shadcn add https://<host>/r/pucar-theme.json`  → the tokens/theme
-- `npx shadcn add https://<host>/r/<component>.json`  → ANY ui component, Pucar-themed (button, field, table, …) — internal deps auto-resolve to this registry
-- `npx shadcn add https://<host>/r/<block>.json`  → dashboard, new-case, status-pill, site-shell, …
+- **design-guidelines.md** — the LAW: sentence case only; brand teal rationed to primary/active/focus; status colours mean status; **three treatments per status hue** (solid = the one strong action · opaque tint pair = chips/callouts · ink = text/icons on neutral — solids are never text, alpha status fills are banned); the **monotone grey ladder** (muted 2 → sunken 2½ → accent 3 hover → accent-strong 4 engaged → track 5 — interaction moves one step down); **control metrics** (fields default 40px; radius by role: container xl · control lg · inset md/sm · chip full; container padding 24); AA floor; never colour alone.
+- **screen-craft.md** — the CRAFT: spacing ladder (+ micro-spacing 2/6/10 inside controls only), page scaffolds (form/list/detail/dashboard/empty), hierarchy & squint test, UX patterns (dialog vs sheet vs page, feedback, filtering, disclosure), the 5 screen states, citizen vs staff density, the mandatory review pass. Generating ANY screen? Follow both.
+- **DECISIONS.md** — every ruling with trigger + rationale. Check before "fixing" anything deliberate.
 
 ## Rules of thumb
-Sentence case. Teal rationed. Status = meaning, charts = categorical. AA verified. Generous spacing, 40px targets. Never colour alone (pair with icon/arrow/label).
+Sentence case. Teal rationed. Status = meaning (chips/inks), charts = categorical. One chip: Badge. AA machine-verified. Generous spacing, ladder-only gaps. Never colour alone (pair with icon/arrow/label). Selection = brand tint; hover = grey; disabled = washed. Live gallery at `/`, measured tokens at `/foundations`.
+
+## Foundations — tokens (source of truth: lib/tokens/tokens.ts → `pnpm tokens`)
+- Surfaces: background · foreground · card · card-foreground · popover · popover-foreground · surface · surface-raised
+- Brand & neutrals: primary · secondary · secondary-foreground · muted · muted-foreground · accent · accent-foreground · accent-strong · brand-muted · brand-muted-foreground · sidebar · sidebar-foreground · sidebar-primary · sidebar-accent · sidebar-accent-foreground · sidebar-border · sidebar-ring
+- Status — solids: destructive · success · info · warning · warning-foreground
+- Status — tints: success-muted · success-muted-foreground · warning-muted · warning-muted-foreground · info-muted · info-muted-foreground · destructive-muted · destructive-muted-foreground
+- Status — inks (text/icons on neutral): success-ink · warning-ink · info-ink · destructive-ink
+- Structure: track · prefilled · border · input · ring · brand-accent (non-text) · surface-sunken
+- Charts (categorical, never status): chart-1 … chart-5
+- Type scale: text-display · text-display-s · text-title-l · text-title · text-title-s · text-body · text-body-compact · text-caption
+- Elevation: shadow-raised · shadow-overlay · shadow-modal (per-theme values) · radius knob 0.625rem (rounded-sm/md/lg/xl/full by ROLE)
+- Solid foregrounds flip white→ink in dark: primary-foreground · destructive-foreground · success-foreground · info-foreground · sidebar-primary-foreground
+
+## Components (components/ui/ — 48 primitives, all registry-installable)
+accordion · alert · alert-dialog · avatar · badge · breadcrumb · button · button-group · calendar · card · chart · checkbox · collapsible · command · description-list · dialog · document-slot · drawer · dropdown-menu · empty · field · hover-card · input · input-group · input-otp · label · menubar · navigation-menu · pagination · popover · progress · radio-group · scroll-area · select · separator · sheet · sidebar · skeleton · slider · sonner · spinner · switch · table · tabs · textarea · toggle · toggle-group · tooltip
+
+## Patterns & blocks
+- **use-mobile** (hook) —
+- **site-shell** (component) — Pucar app frame — sidebar (grouped nav + user block) + top bar. Blocks (case-dashboard, new-case-form) are designed to render inside this shell — add it first and wrap your pages with it (plus the theme provider).
+- **case-dashboard** (block) — ON Court dashboard — stat cards, filings chart, share-of-docket, today's hearings. Expects to render inside site-shell.
+- **new-case-form** (block) — ON Court intake — sectioned multi-field complaint form. Expects to render inside site-shell.
+
+## Install (self-hosted shadcn registry)
+- Theme + utility mappings: `npx shadcn add https://pucar-ui.vercel.app/r/pucar-theme.json`
+- Any component, Pucar-themed (deps auto-resolve here): `npx shadcn add https://pucar-ui.vercel.app/r/<name>.json`
+- The law as files: `npx shadcn add https://pucar-ui.vercel.app/r/design-rules.json`
+- Live gallery: https://pucar-ui.vercel.app/ · measured token lab: https://pucar-ui.vercel.app/foundations

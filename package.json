@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "gate": "tsx lib/tokens/gate.ts",
-    "tokens": "tsx lib/tokens/gate.ts && tsx lib/tokens/build-css.ts && tsx lib/tokens/build-registry.ts && shadcn build"
+    "tokens": "tsx lib/tokens/gate.ts && tsx lib/tokens/build-css.ts && tsx lib/tokens/build-registry.ts && tsx lib/tokens/build-llms.ts && shadcn build"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",
@@ -41,5 +41,9 @@
     "tailwindcss": "^4",
     "tsx": "^4.22.4",
     "typescript": "^5"
-  }
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
 }

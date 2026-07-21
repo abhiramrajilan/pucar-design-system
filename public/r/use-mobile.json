@@ -5,7 +5,7 @@
   "files": [
     {
       "path": "hooks/use-mobile.ts",
-      "content": "import * as React from \"react\"\n\nconst MOBILE_BREAKPOINT = 768\n\nexport function useIsMobile() {\n  const [isMobile, setIsMobile] = React.useState<boolean | undefined>(undefined)\n\n  React.useEffect(() => {\n    const mql = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT - 1}px)`)\n    const onChange = () => {\n      setIsMobile(window.innerWidth < MOBILE_BREAKPOINT)\n    }\n    mql.addEventListener(\"change\", onChange)\n    setIsMobile(window.innerWidth < MOBILE_BREAKPOINT)\n    return () => mql.removeEventListener(\"change\", onChange)\n  }, [])\n\n  return !!isMobile\n}\n",
+      "content": "import * as React from \"react\"\n\nconst MOBILE_BREAKPOINT = 768\nconst QUERY = `(max-width: ${MOBILE_BREAKPOINT - 1}px)`\n\n// matchMedia is the external system — model it as an external store instead of\n// setState-in-effect (which lints as a cascading-render hazard). Server snapshot\n// is false so SSR and the first client render agree.\nfunction subscribe(onChange: () => void) {\n  const mql = window.matchMedia(QUERY)\n  mql.addEventListener(\"change\", onChange)\n  return () => mql.removeEventListener(\"change\", onChange)\n}\n\nconst getSnapshot = () => window.matchMedia(QUERY).matches\nconst getServerSnapshot = () => false\n\nexport function useIsMobile() {\n  return React.useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot)\n}\n",
       "type": "registry:hook"
     }
   ],
